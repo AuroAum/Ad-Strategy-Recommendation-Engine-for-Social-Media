@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Recommended Ad Strategies</h2>
+{% if recommendations %}
+    <ul>
+    {% for recommendation in recommendations %}
+        <li>
+            <strong>Platform:</strong> {{ recommendation.recommended_platform }}<br>
+            <strong>Ad Type:</strong> {{ recommendation.content_category }}<br>
+            <strong>Description:</strong> {{ recommendation.description }}
+        </li>
+        <br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No recommendations found for the selected criteria.</p>
+{% endif %}
+<a href="{{ url_for('main.home') }}" class="back-button">Back</a>
+{% endblock %}
